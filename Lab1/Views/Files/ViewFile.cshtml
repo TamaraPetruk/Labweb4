@@ -1,0 +1,94 @@
+﻿@using Microsoft.Extensions.Localization
+@using Lab1
+@inject IStringLocalizer<SharedResource> Localizer
+
+@{
+    ViewData["Title"] = Localizer["ViewFile"];
+
+    var fileName = ViewBag.FileName as string;
+    var fileContent = ViewBag.FileContent as string;
+
+    var extension = System.IO.Path
+        .GetExtension(fileName ?? "")
+        .ToLowerInvariant();
+
+    var fileUrl = Url.Content(
+        "~/Files/" + System.Uri.EscapeDataString(fileName ?? ""));
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h1 class="h3 mb-0">
+                    @fileName
+                </h1>
+
+                <a asp-controller="Files"
+                   asp-action="ListFiles"
+                   class="btn btn-outline-secondary">
+                    @Localizer["BackToFiles"]
+                </a>
+
+            </div>
+
+            @if (extension == ".txt")
+            {
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <pre class="mb-0"
+                             style="white-space: pre-wrap;">@fileContent</pre>
+                    </div>
+                </div>
+            }
+            else if (extension == ".jpg" ||
+                     extension == ".jpeg" ||
+                     extension == ".png" ||
+                     extension == ".gif" ||
+                     extension == ".webp")
+            {
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+
+                        <img src="@fileUrl"
+                             alt="@fileName"
+                             class="img-fluid rounded"
+                             style="max-height: 70vh;" />
+
+                    </div>
+                </div>
+            }
+            else if (extension == ".pdf")
+            {
+                <div class="card shadow-sm">
+                    <div class="card-body">
+
+                        <iframe src="@fileUrl"
+                                style="width: 100%; height: 700px; border: none;">
+                        </iframe>
+
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+
+                    <p class="mb-3">
+                        @Localizer["UnsupportedFileMessage"]
+                    </p>
+
+                    <a href="@fileUrl"
+                       target="_blank"
+                       class="btn btn-primary">
+                        @Localizer["OpenFile"]
+                    </a>
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

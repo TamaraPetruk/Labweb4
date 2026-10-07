@@ -1,0 +1,599 @@
+﻿@using Microsoft.Extensions.Localization
+@using Lab1
+@inject IStringLocalizer<SharedResource> Localizer
+@model Lab1.Models.ContactMessage
+
+@{
+    ViewData["Title"] = Localizer["Home"];
+}
+
+<!-- Hero section -->
+<header class="bg-dark py-5" id="about">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+
+                    <h1 class="display-5 fw-bolder text-white mb-2">
+                        @Localizer["HeroTitle"]
+                    </h1>
+
+                    <p class="lead fw-normal text-white-50 mb-4">
+                        @Localizer["HeroText"]
+                    </p>
+
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3"
+                           href="#courses">
+                            @Localizer["ExploreCourses"]
+                        </a>
+
+                        <a class="btn btn-outline-light btn-lg px-4"
+                           href="#pricing">
+                            @Localizer["LearnMore"]
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                <img class="img-fluid rounded-3 my-5"
+                     src="https://dummyimage.com/600x400/343a40/ffffff&text=EduNova+Academy"
+                     alt="EduNova Academy" />
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<!-- Courses / Features section -->
+<section class="py-5" id="courses">
+    <div class="container px-5 my-5">
+
+        <div class="row gx-5">
+
+            <!-- Design -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                    <i class="bi bi-palette"></i>
+                </div>
+
+                <h2 class="h4 fw-bolder">
+                    @Localizer["DesignCreativity"]
+                </h2>
+
+                <p>
+                    @Localizer["DesignCreativityText"]
+                </p>
+
+                <a class="text-decoration-none" href="#contact">
+                    @Localizer["LearnMore"]
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+
+            <!-- Programming -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+
+                <h2 class="h4 fw-bolder">
+                    @Localizer["Programming"]
+                </h2>
+
+                <p>
+                    @Localizer["ProgrammingText"]
+                </p>
+
+                <a class="text-decoration-none" href="#contact">
+                    @Localizer["LearnMore"]
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+
+            <!-- Business -->
+            <div class="col-lg-4">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+
+                <h2 class="h4 fw-bolder">
+                    @Localizer["BusinessMarketing"]
+                </h2>
+
+                <p>
+                    @Localizer["BusinessMarketingText"]
+                </p>
+
+                <a class="text-decoration-none" href="#contact">
+                    @Localizer["LearnMore"]
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Learning plans section -->
+<section class="py-5 bg-light" id="pricing">
+    <div class="container px-5 my-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bolder">
+                @Localizer["ChooseLearningPlan"]
+            </h2>
+
+            <p class="lead mb-0">
+                @Localizer["LearningPlanText"]
+            </p>
+
+        </div>
+
+
+        <div class="row gx-5 justify-content-center">
+
+            <!-- STARTER -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+
+                <div class="card h-100 shadow border-0">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-3">
+
+                            <span class="text-uppercase fw-bold small">
+                                @Localizer["Starter"]
+                            </span>
+
+                            <div class="display-5 fw-bold">
+                                $0
+                                <span class="fs-6 fw-normal">
+                                    @Localizer["PerMonth"]
+                                </span>
+                            </div>
+
+                            <p class="text-muted">
+                                @Localizer["StarterDescription"]
+                            </p>
+
+                        </div>
+
+
+                        <ul class="list-unstyled mb-4">
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["FreeCourses"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["BasicLearningMaterials"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["CommunityAccess"]
+                            </li>
+
+                            <li class="mb-2 text-muted">
+                                <i class="bi bi-x"></i>
+                                @Localizer["CourseCertificates"]
+                            </li>
+
+                            <li class="mb-2 text-muted">
+                                <i class="bi bi-x"></i>
+                                @Localizer["PersonalLearningSupport"]
+                            </li>
+
+                        </ul>
+
+
+                        <div class="d-grid">
+
+                            <a class="btn btn-outline-dark"
+                               href="#courses">
+                                @Localizer["GetStarted"]
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRO -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+
+                <div class="card h-100 shadow border-0">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-3">
+
+                            <span class="text-uppercase fw-bold small">
+                                @Localizer["Pro"]
+                            </span>
+
+                            <div class="display-5 fw-bold">
+                                $9
+                                <span class="fs-6 fw-normal">
+                                    @Localizer["PerMonth"]
+                                </span>
+                            </div>
+
+                            <p class="text-muted">
+                                @Localizer["ProDescription"]
+                            </p>
+
+                        </div>
+
+
+                        <ul class="list-unstyled mb-4">
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["UnlimitedCourseAccess"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["PracticalAssignments"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["CourseCertificates"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["ProgressTracking"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["CommunityAccess"]
+                            </li>
+
+                            <li class="mb-2 text-muted">
+                                <i class="bi bi-x"></i>
+                                @Localizer["PersonalMentor"]
+                            </li>
+
+                        </ul>
+
+
+                        <div class="d-grid">
+
+                            <a class="btn btn-primary"
+                               href="#courses">
+                                @Localizer["ChoosePro"]
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PREMIUM -->
+            <div class="col-lg-4">
+
+                <div class="card h-100 shadow border-0">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-3">
+
+                            <span class="text-uppercase fw-bold small">
+                                @Localizer["Premium"]
+                            </span>
+
+                            <div class="display-5 fw-bold">
+                                $49
+                                <span class="fs-6 fw-normal">
+                                    @Localizer["PerMonth"]
+                                </span>
+                            </div>
+
+                            <p class="text-muted">
+                                @Localizer["PremiumDescription"]
+                            </p>
+
+                        </div>
+
+
+                        <ul class="list-unstyled mb-4">
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["AllCoursesAccess"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["AdvancedLearningMaterials"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["PracticalProjects"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["CourseCertificates"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["PersonalMentorSupport"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["CareerGuidance"]
+                            </li>
+
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                @Localizer["PrioritySupport"]
+                            </li>
+
+                        </ul>
+
+
+                        <div class="d-grid">
+
+                            <a class="btn btn-primary"
+                               href="#contact">
+                                @Localizer["ChoosePremium"]
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials section -->
+<section class="py-5">
+    <div class="container px-5 my-5">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bolder">
+                @Localizer["WhatStudentsSay"]
+            </h2>
+
+            <p class="lead mb-0">
+                @Localizer["StudentExperiences"]
+            </p>
+
+        </div>
+
+
+        <div class="row gx-5 justify-content-center">
+
+            <!-- Testimonial 1 -->
+            <div class="col-lg-6">
+
+                <div class="card border-0 bg-light">
+
+                    <div class="card-body p-4">
+
+                        <div class="d-flex">
+
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-chat-quote-fill fs-1 text-primary"></i>
+                            </div>
+
+                            <div class="ms-4">
+
+                                <p class="mb-1">
+                                    @Localizer["Testimonial1"]
+                                </p>
+
+                                <div class="small text-muted">
+                                    @Localizer["AnnaWebDesignStudent"]
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Testimonial 2 -->
+            <div class="col-lg-6">
+
+                <div class="card border-0 bg-light">
+
+                    <div class="card-body p-4">
+
+                        <div class="d-flex">
+
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-chat-quote-fill fs-1 text-primary"></i>
+                            </div>
+
+                            <div class="ms-4">
+
+                                <p class="mb-1">
+                                    @Localizer["Testimonial2"]
+                                </p>
+
+                                <div class="small text-muted">
+                                    @Localizer["MarkProgrammingStudent"]
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact section -->
+<section class="py-5 bg-light" id="contact">
+    <div class="container px-5 my-5">
+
+        <div class="text-center mb-5">
+
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                <i class="bi bi-envelope"></i>
+            </div>
+
+            <h2 class="fw-bolder">
+                @Localizer["StartLearningJourney"]
+            </h2>
+
+            <p class="lead mb-0">
+                @Localizer["QuestionsAboutCourses"]
+            </p>
+
+        </div>
+
+
+        <div class="row gx-5 justify-content-center">
+
+            <div class="col-lg-6">
+
+                @if (ViewBag.MessageSent == true)
+                {
+                    <div class="alert alert-success text-center mb-4">
+                        <i class="bi bi-check-circle me-2"></i>
+                        @Localizer["MessageSentSuccessfully"]
+                    </div>
+                }
+
+
+                <form asp-controller="Home"
+                      asp-action="SendEmail"
+                      method="post">
+
+                    <div class="form-floating mb-3">
+
+                        <input class="form-control"
+                               asp-for="Name"
+                               id="name"
+                               type="text"
+                               placeholder="@Localizer["EnterYourName"]" />
+
+                        <label for="name">
+                            @Localizer["FullName"]
+                        </label>
+
+                        <span asp-validation-for="Name"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+
+                        <input class="form-control"
+                               asp-for="Email"
+                               id="email"
+                               type="email"
+                               placeholder="@Localizer["EmailAddress"]" />
+
+                        <label for="email">
+                            @Localizer["EmailAddress"]
+                        </label>
+
+                        <span asp-validation-for="Email"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+
+                        <input class="form-control"
+                               asp-for="Subject"
+                               id="subject"
+                               type="text"
+                               placeholder="@Localizer["Subject"]" />
+
+                        <label for="subject">
+                            @Localizer["Subject"]
+                        </label>
+
+                        <span asp-validation-for="Subject"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+
+                        <textarea class="form-control"
+                                  asp-for="Message"
+                                  id="message"
+                                  placeholder="@Localizer["EnterYourMessage"]"
+                                  style="height: 10rem"></textarea>
+
+                        <label for="message">
+                            @Localizer["Message"]
+                        </label>
+
+                        <span asp-validation-for="Message"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <div class="d-grid">
+
+                        <button class="btn btn-primary btn-lg"
+                                type="submit">
+                            @Localizer["SendMessage"]
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

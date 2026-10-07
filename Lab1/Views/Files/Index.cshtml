@@ -1,0 +1,73 @@
+﻿@using Microsoft.Extensions.Localization
+@using Lab1
+@inject IStringLocalizer<SharedResource> Localizer
+
+@{
+    ViewData["Title"] = Localizer["Files"];
+}
+
+<div class="container py-5">
+
+    @if (TempData["UploadSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show mb-4"
+             role="alert">
+
+            <i class="bi bi-check-circle me-2"></i>
+            @Localizer["FileUploadedSuccessfully"]
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="@Localizer["Close"]">
+            </button>
+        </div>
+    }
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+
+                    <h1 class="h3 mb-4 text-center">
+                        @Localizer["FileUpload"]
+                    </h1>
+
+                    <form asp-controller="Files"
+                          asp-action="Upload"
+                          method="post"
+                          enctype="multipart/form-data">
+
+                        <div class="mb-3">
+
+                            <label for="file"
+                                   class="form-label">
+                                @Localizer["SelectFile"]
+                            </label>
+
+                            <input type="file"
+                                   class="form-control"
+                                   id="file"
+                                   name="file"
+                                   required />
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                @Localizer["UploadFile"]
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

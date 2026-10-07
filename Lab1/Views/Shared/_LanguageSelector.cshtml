@@ -1,0 +1,55 @@
+﻿<div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle"
+       href="#"
+       id="languageDropdown"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
+        @(System.Globalization.CultureInfo.CurrentUICulture.Name == "uk" ? "UA" : "EN")
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="languageDropdown">
+
+        <li>
+            <form asp-controller="Home"
+                  asp-action="SetLanguage"
+                  method="post">
+
+                <input type="hidden"
+                       name="culture"
+                       value="en" />
+
+                <input type="hidden"
+                       name="returnUrl"
+                       value="@Context.Request.Path@Context.Request.QueryString" />
+
+                <button type="submit"
+                        class="dropdown-item">
+                    English
+                </button>
+            </form>
+        </li>
+
+        <li>
+            <form asp-controller="Home"
+                  asp-action="SetLanguage"
+                  method="post">
+
+                <input type="hidden"
+                       name="culture"
+                       value="uk" />
+
+                <input type="hidden"
+                       name="returnUrl"
+                       value="@Context.Request.Path@Context.Request.QueryString" />
+
+                <button type="submit"
+                        class="dropdown-item">
+                    Українська
+                </button>
+            </form>
+        </li>
+
+    </ul>
+</div>

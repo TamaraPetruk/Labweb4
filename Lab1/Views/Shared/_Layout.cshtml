@@ -1,0 +1,127 @@
+﻿@using Microsoft.Extensions.Localization
+@using Lab1
+@inject IStringLocalizer<SharedResource> Localizer
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - EduNova Academy</title>
+
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="~/bootstrap-icons/font/bootstrap-icons.css" />
+
+    <!-- Template styles -->
+    <link rel="stylesheet"
+          href="~/css/styles.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+
+            <a class="navbar-brand"
+               asp-controller="Home"
+               asp-action="Index">
+                EduNova Academy
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-controller="Home"
+                           asp-action="Index">
+                            @Localizer["Home"]
+                        </a>
+                    </li>
+
+                    <!-- About -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="#about">
+                            @Localizer["About"]
+                        </a>
+                    </li>
+
+                    <!-- Courses -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="#courses">
+                            @Localizer["Courses"]
+                        </a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="#contact">
+                            @Localizer["Contact"]
+                        </a>
+                    </li>
+
+                    <!-- Language selector -->
+                    <li class="nav-item">
+                        <partial name="_LanguageSelector" />
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+        <div class="container px-5">
+            <p class="m-0 text-center text-white">
+                Copyright &copy; 2026 - EduNova Academy
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/scripts.js"
+            asp-append-version="true">
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>
